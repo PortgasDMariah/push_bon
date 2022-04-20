@@ -146,9 +146,3 @@ void	organisation(bon *list, bon *listb)
 	}	
 }
 
-void ft_nanan(t_list)
-{
-	sfdsfds 
-	sdf __STDDEF_Hsdf 
-	df
-}
