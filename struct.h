@@ -89,5 +89,6 @@ void sign(int *maxi, int *nodi);
 void    freeall(bon *list, int tmp);
 void deleteallnodes(t_node *start);
 void	begin(t_node *node);
+void	who(bon *list);
 #endif
 

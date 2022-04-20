@@ -80,33 +80,6 @@ void	deleteallnodes(t_node *start)
 	}
 }
 
-void	three(bon *list)
-{
-	list->maxi = list->chef;
-	position(list);
-	list->chef = list->maxi;
-	if(!(list->min->mouv == 0 && list->chef->mouv == list->fin))
-	{
-		if((list->min->mouv == list->fin && list->chef->mouv == 0) || (list->chef->mouv != 0 && list->min->mouv == 1))
-	       		ft_swap(list);
-		else if(list->chef->mouv == 0 && list->min->mouv == 1)
-			ft_rotate(list);
-		else if((list->min->mouv == 0 && list->chef->mouv == 1) || list->min->mouv == list->fin)
-			ft_rrotate(list);
-		list->action++;
-		three(list);
-	}
-	else
-		return;
-}
-
-void	three_to_five(bon *list)
-{
-	three(list);
-	quit_well(list, 1);
-}
-
-
 void    firsti(bon *list, t_node *c)
 {
         position(list);
@@ -127,6 +100,72 @@ void    firsti(bon *list, t_node *c)
                 }
         }
 }
+
+void	listmin(bon *list)
+{
+	t_node *tmp2;
+
+	tmp2 = list->head;
+	list->min = list->head;
+	while(tmp2)
+	{
+		if(list->min->data > tmp2->data)
+			list->min = tmp2;
+		tmp2 = tmp2->next;
+	}
+}
+
+
+void	three(bon *list)
+{
+	list->maxi = list->chef;
+	position(list);
+	list->chef = list->maxi;
+	if(!(list->min->mouv == 0 && list->chef->mouv == list->fin))
+	{
+		if((list->min->mouv == list->fin && list->chef->mouv == 0) || (list->chef->mouv != 0 && list->min->mouv == 1))
+	       		ft_swap(list);
+		else if(list->chef->mouv == 0 && list->min->mouv == 1)
+			ft_rotate(list);
+		else if((list->min->mouv == 0 && list->chef->mouv == 1) || list->min->mouv == list->fin)
+			ft_rrotate(list);
+		list->action++;
+		three(list);
+	}
+	else
+		return;
+}
+
+void	five(bon *list, bon *listb)
+{
+	t_node *min2;
+
+	min2 = found_your_place(list, list->min->data);
+	firsti(list, list->min);
+	pb(list, listb);
+	list->action++;
+	firsti(list, min2);
+	pb(list, listb);
+	listmin(list);
+	three(list);
+	list->action++;
+	pb(listb, list);
+	list->action++;
+	pb(listb, list);
+	list->action++;
+}
+
+
+void	three_to_five(bon *list, bon *listb)
+{
+	if(list->tot == 4)
+		three(list);
+	else if(list->tot == 6)
+		five(list, listb);
+	quit_well(list, 2);
+}
+
+
 
 void init(bon *list, bon *listb)
 {
@@ -177,8 +216,8 @@ void	create_stack_a(bon *list, char *av, int tmp)
 void	lets_sort(bon *list, bon *listb)
 {
 	listmax(list);
-	if(list->tot == 4)
-		three_to_five(list);
+	if(list->tot == 4 || list->tot == 6)
+		three_to_five(list, listb);
 	firsti(list, list->min);
 	bienfait(list, listb);
 	organisation(list, listb);
