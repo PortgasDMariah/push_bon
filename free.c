@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void    begin(bon *list, t_node *node)
+void    begin(t_node *node)
 {
     if(node)
     {
@@ -25,7 +25,7 @@ void    begin(bon *list, t_node *node)
 
 void    freeall(bon *list, int tmp)
 {
-    begin(list, list->head);
+    begin(list->head);
     free(list->tmp2);
     if(tmp != 1)
         free(list->test);

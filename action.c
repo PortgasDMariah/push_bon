@@ -27,7 +27,7 @@ void	rrr(bon *list, bon *listb)
 	ft_rrotate(listb);
 }
 
-void	ft_delete(bon *list, t_node *node)
+void	ft_delete(bon *list)
 {
 	t_node *head;
 	
@@ -48,7 +48,7 @@ void pb(bon *list, bon *listb)
 	int tmp;
 
 	tmp = list->head->data;
-	ft_delete(list, list->head);
+	ft_delete(list);
 	if(listb->head != NULL)
 		front(listb, ft_lstnew(tmp));
 	else
@@ -126,7 +126,6 @@ void	ft_swap(bon *list)
 void	ft_swapbas(bon *list)
 {
 	t_node *tmp;
-	t_node *node;
 	tmp = list->before;
 
 	tmp = tmp->next;

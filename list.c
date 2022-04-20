@@ -58,14 +58,6 @@ t_node	*ft_lstlast(t_node *lst)
 }
 
 
-void	ft_lstadd_front(t_node **alst, t_node *new, bon *list)
-{
-	if (alst != NULL)
-		new->next = *alst;
-
-	*alst = new;
-}
-
 
 void	front(bon *lis, t_node *new)
 {

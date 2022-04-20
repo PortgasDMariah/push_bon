@@ -113,6 +113,8 @@ void	actiona(bon *list, bon *listb)
 	int push;
 	int maxi;
 
+	doub = 0;
+	simple = 0;
 	push = listb->push->mouv;
 	if(list->maxi)
 		maxi = list->maxi->mouv;

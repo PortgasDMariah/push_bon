@@ -31,8 +31,8 @@ int max(int maxi, int nodi)
 		return(nodi);
 	else if (nodi == maxi)
 		return(nodi);
+	return(0);
 }
-
 
 void	goodmouv(t_node *tmp, bon *list)
 {
@@ -42,12 +42,11 @@ void	goodmouv(t_node *tmp, bon *list)
 	tmp = tmp2;
 }
 
-void	who(bon *list, bon *listb)
+void	who(bon *list)
 {
 	goodmouv(list->maxi, list);
 	goodmouv(list->min, list);
 	goodmouv(list->chef, list);
-
 }
 
 
@@ -56,7 +55,7 @@ int counti(bon *list, bon *listb)
 	int maxi;//le max de node donc il doit se placer juste derriere max
 	int nodi;//le chiffre qu'on analyse
 	
-	who(list, listb);
+	who(list);
 	nodi = listb->tmp->mouv;
 	if(listb->tmp->data > list->chef->data)
 	{
@@ -78,6 +77,7 @@ int counti(bon *list, bon *listb)
 	}
 	else if((maxi == 0 || nodi == 0) || (maxi == 0 && nodi == 0))
 		return(max(maxi, nodi) + 1);
+	return(0);
 }
 
 void	foundit(bon *list, bon *listb) // elle trouve le bon max

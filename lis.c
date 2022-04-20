@@ -125,12 +125,6 @@ void	lis_organisation(bon *list, bon *listb)
 
 void	bienfait(bon *list, bon *listb)
 {
-	int i;
-	int j;
-	int max;
-	int who;
-
-	i = 1;
 	list->tmp2 = NULL;
 	list->tmp = list->head;
 	list->tmp2 = list->head;

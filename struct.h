@@ -59,7 +59,7 @@ void	front(bon *list, t_node *new);
 void     ft_rrotate(bon *list);
 void	ft_rotate(bon *list);
 void	pb(bon *list, bon *listb);
-void	ft_delete(bon *list, t_node *node);
+void	ft_delete(bon *list);
 void	pa(bon *list, bon *listb);
 void	ft_lis(bon *list, bon *listtmp, bon *listb);
 int	ft_listlen(bon *list);
@@ -88,6 +88,6 @@ void sign(int *maxi, int *nodi);
 
 void    freeall(bon *list, int tmp);
 void deleteallnodes(t_node *start);
-void	begin(bon *list, t_node *node);
+void	begin(t_node *node);
 #endif
 
