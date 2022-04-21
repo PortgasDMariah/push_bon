@@ -6,10 +6,9 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:25:22 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/09 17:41:08 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/21 22:39:09 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "struct.h"
 #include <stdlib.h> 
 
@@ -54,33 +53,27 @@ t_node	*ft_lstlast(t_node *lst)
 		lst = lst->next;
 		i++;
 	}
-	return ((t_node*)lst);
+	return ((t_node *)lst);
 }
-
-
 
 void	front(bon *lis, t_node *new)
 {
-	if(lis->head == NULL)
+	if (lis->head == NULL)
 	{
 		lis->head = new;
-		return;
+		return ;
 	}
 	lis->head->prev = new;
 	new->next = lis->head;
 	new->prev = NULL;
-	
 	lis->head = new;
-	if(lis->head->next == NULL)
-		return;
-	while(new->next->next != NULL)
+	if (lis->head->next == NULL)
+		return ;
+	while (new->next->next != NULL)
 		new = new->next;
 	lis->before = new;
 	lis->last = new->next;
-	
 }
-
-#include <stdio.h>
 
 void	ft_lstadd_back(t_node **alst, t_node *new, bon *list)
 {
@@ -92,7 +85,7 @@ void	ft_lstadd_back(t_node **alst, t_node *new, bon *list)
 	if (!*alst)
 	{
 		*alst = new;
-		return;
+		return ;
 	}
 	else
 	{

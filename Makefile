@@ -10,31 +10,28 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_num.c lis.c list.c tri.c free.c bouge.c bestmove.c action.c \
-    
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-RM = rm -f
-OBJS = $(SRCS:.c=.o)
-NAME = libft.a
+SRCS = action.c action2.c utils.c bestmove.c bouge.c ft_printf.c free.c \
+			init.c 3_5numbers.c lis.c tri.c ft_num.c list.c 
+OBJS 		= ${SRCS:.c=.o}
+
+CC 			= clang
+CFLAGS		= -Wall -Wextra -Werror
+RM			= rm -f
+NAME		= push_swap
+FLAGS		= 
+
+all: 		${NAME}
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+$(NAME): 	$(OBJS)
+					${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(FLAGS)
 
-all : $(NAME)
+clean:
+			${RM} ${OBJS}
 
-bonus : $(OBJS) 
-	ar rc $(NAME) $(OBJS) 
+fclean: 	clean
+			${RM} ${NAME}
 
-clean :
-	$(RM)   $(OBJS)
-
-fclean :   clean
-	$(RM) $(NAME)
-
-re : fclean all
-
-.PHONY = re all clean fclean
+re: 		fclean all
