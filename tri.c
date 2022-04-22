@@ -6,7 +6,7 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:23:49 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:44:18 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:17:29 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
@@ -14,8 +14,11 @@
 #include <stddef.h>
 #include <stdio.h>
 
-void	actiona_drotate(bon *list, bon *listb, int doub, int simple, int push, int maxi)
+void	actiona_drotate(t_data*list, t_data*listb, int push, int maxi)
 {
+	int	doub;
+	int	simple;
+
 	doub = min(push, maxi);
 	simple = max(push, maxi) - doub;
 	while (doub != 0)
@@ -35,8 +38,11 @@ void	actiona_drotate(bon *list, bon *listb, int doub, int simple, int push, int 
 	}
 }
 
-void	actiona_rrr(bon *list, bon *listb, int doub, int simple, int push, int maxi)
+void	actiona_rrr(t_data*list, t_data*listb, int push, int maxi)
 {
+	int	doub;
+	int	simple;
+
 	doub = min(push, maxi);
 	simple = max(push, maxi) - doub;
 	while (doub != 0)
@@ -56,7 +62,7 @@ void	actiona_rrr(bon *list, bon *listb, int doub, int simple, int push, int maxi
 	}
 }
 
-void	actiona_else(bon *list, bon *listb, int push, int maxi)
+void	actiona_else(t_data*list, t_data*listb, int push, int maxi)
 {
 	while (push > 0)
 	{
@@ -80,16 +86,12 @@ void	actiona_else(bon *list, bon *listb, int push, int maxi)
 	}
 }
 
-void	actiona(bon *list, bon *listb)
+void	actiona(t_data*list, t_data*listb)
 {
-	int	doub;
-	int	simple;
 	int	push;
 	int	maxi;
 
 	found_your_place(list, listb->push->data);
-	doub = 0;
-	simple = 0;
 	push = listb->push->mouv;
 	if (list->maxi)
 		maxi = list->maxi->mouv;
@@ -99,15 +101,15 @@ void	actiona(bon *list, bon *listb)
 		maxi++;
 	}
 	if (push > 0 && maxi > 0)
-		actiona_drotate(list, listb, doub, simple, push, maxi);
+		actiona_drotate(list, listb, push, maxi);
 	else if (push < 0 && maxi < 0)
-		actiona_rrr(list, listb, doub, simple, push, maxi);
+		actiona_rrr(list, listb, push, maxi);
 	else
 		actiona_else(list, listb, push, maxi);
 	pa(list, listb);
 }
 
-void	organisation(bon *list, bon *listb)
+void	organisation(t_data*list, t_data*listb)
 {
 	int	len;
 

@@ -6,12 +6,12 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 22:23:06 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:24:44 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 20:17:58 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
 
-void	init(bon *list, bon *listb)
+void	init(t_data*list, t_data*listb)
 {
 	list->fin = 0;
 	list->tot = 0;
@@ -28,7 +28,6 @@ void	init(bon *list, bon *listb)
 	list->tmp = NULL;
 	list->maxi = NULL;
 	listb->head = NULL;
-	listb->maxi = NULL;
 	listb->min = NULL;
 	listb->chef = NULL;
 	list->tmp2 = malloc(sizeof(t_node));
@@ -37,9 +36,11 @@ void	init(bon *list, bon *listb)
 	list->i = 1;
 	list->val = 0;
 	list->j = 0;
+	list->who = 0;
+	list->max = 0;
 }
 
-void	create_stack_a(bon *list, char *av, int tmp)
+void	create_stack_a(t_data*list, char *av, int tmp)
 {
 	int	val;
 
@@ -59,7 +60,7 @@ void	create_stack_a(bon *list, char *av, int tmp)
 	}
 }
 
-void	firsti(bon *list, t_node *c)
+void	firsti(t_data*list, t_node *c)
 {
 	position(list);
 	if (c->mouv < 0)
@@ -72,16 +73,21 @@ void	firsti(bon *list, t_node *c)
 		while (list->head->data != c->data)
 			ft_rotate(list, 1);
 	}
+	if (sorted_or_not(list) != 0)
+		quit_well(list, 3);
 }
 
-void	lets_sort(bon *list, bon *listb)
+void	lets_sort(t_data*list, t_data*listb)
 {
-	listmax(list);
-	if (list->tot == 4 || list->tot == 6)
-		three_to_five(list, listb);
-	firsti(list, list->min);
-	lis(list, listb);
-	organisation(list, listb);
-	firsti(list, list->min);
-	quit_well(list, 2);
+	if (sorted_or_not(list) == 0)
+	{
+		listmax(list);
+		if (list->tot == 4 || list->tot == 6)
+			three_to_five(list, listb);
+		firsti(list, list->min);
+		lis(list, listb);
+		organisation(list, listb);
+		firsti(list, list->min);
+		quit_well(list, 2);
+	}
 }

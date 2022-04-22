@@ -6,7 +6,7 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:21:13 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:06:55 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 20:18:40 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
@@ -14,21 +14,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void	doublerotate(bon *list, bon *listb)
+void	doublerotate(t_data*list, t_data*listb)
 {
-	ft_printf("rr \n");
+	ft_printf("rr\n");
 	ft_rotate(list, 3);
 	ft_rotate(listb, 3);
 }
 
-void	rrr(bon *list, bon *listb)
+void	rrr(t_data*list, t_data*listb)
 {
-	ft_printf("rrr \n");
+	ft_printf("rrr\n");
 	ft_rrotate(list, 3);
 	ft_rrotate(listb, 3);
 }
 
-void	ft_delete(bon *list)
+void	ft_delete(t_data*list)
 {
 	t_node	*head;
 
@@ -39,14 +39,14 @@ void	ft_delete(bon *list)
 		list->head->prev = NULL;
 }
 
-void	pa(bon *list, bon *listb)
+void	pa(t_data*list, t_data*listb)
 {
-	ft_printf("pa \n");
+	ft_printf("pa\n");
 	if (listb->head)
 		pb(listb, list, 2);
 }
 
-void	pb(bon *list, bon *listb, int m)
+void	pb(t_data*list, t_data*listb, int m)
 {
 	int	tmp;
 
@@ -58,5 +58,5 @@ void	pb(bon *list, bon *listb, int m)
 	else
 		listb->head = ft_lstnew(tmp);
 	if (m == 1)
-		ft_printf("pb \n");
+		ft_printf("pb\n");
 }

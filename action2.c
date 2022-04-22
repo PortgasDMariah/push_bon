@@ -6,14 +6,14 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 22:04:59 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:06:06 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:33:11 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
 
-void	ft_swap(bon *list)
+void	ft_swap(t_data*list)
 {
-	ft_printf("sa \n");
+	ft_printf("sa\n");
 	list->node = list->head;
 	list->node->prev = list->node->next;
 	list->node->next = list->node->next->next;
@@ -27,12 +27,12 @@ void	ft_swap(bon *list)
 	list->head = list->node;
 }
 
-void	ft_rrotate(bon *list, int m)
+void	ft_rrotate(t_data*list, int m)
 {
 	if (m == 1)
-		ft_printf("rra \n");
+		ft_printf("rra\n");
 	else if (m == 2)
-		ft_printf("rrb \n");
+		ft_printf("rrb\n");
 	list->before = list->last->prev;
 	list->before->next = NULL;
 	list->last->prev = NULL;
@@ -43,13 +43,13 @@ void	ft_rrotate(bon *list, int m)
 	list->before = list->before->prev;
 }
 
-void	rotate_continu(t_node *tmp, t_node *node, bon *list, int m)
+void	rotate_continu(t_node *tmp, t_node *node, t_data*list, int m)
 {
 	if (m == 1)
-		ft_printf("ra \n");
+		ft_printf("ra\n");
 	else if (m == 2)
-		ft_printf("rb \n");
-	while   (node->next != NULL)
+		ft_printf("rb\n");
+	while (node->next != NULL)
 	{
 		node = node->next;
 		if (node->next == NULL)
@@ -58,12 +58,12 @@ void	rotate_continu(t_node *tmp, t_node *node, bon *list, int m)
 			node->next = tmp;
 			list->before = node;
 			list->last = node->next;
-			return  ;
+			return ;
 		}
 	}
 }
 
-void	ft_rotate(bon *list, int m)
+void	ft_rotate(t_data*list, int m)
 {
 	t_node	*tmp;
 	t_node	*node;
@@ -80,7 +80,7 @@ void	ft_rotate(bon *list, int m)
 		node->next = tmp;
 		list->last = node->next;
 		list->head = node;
-		return  ;
+		return ;
 	}
 	rotate_continu(tmp, node, list, m);
 }

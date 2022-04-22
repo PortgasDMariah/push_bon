@@ -6,7 +6,7 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 17:00:38 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:16:50 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 20:19:36 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
@@ -35,7 +35,7 @@ void	free_list(t_node *node)
 	}
 }
 
-void	freeall(bon *list, int tmp)
+void	freeall(t_data*list, int tmp)
 {
 	free_list(list->head);
 	free(list->tmp2);
@@ -43,10 +43,17 @@ void	freeall(bon *list, int tmp)
 		free(list->test);
 }
 
-void	quit_well(bon *list, int tmp)
+void	quit_well(t_data*list, int tmp)
 {
+	if (tmp == 0)
+	{
+		free(list->tmp2);
+		exit(0);
+	}
+	else if (tmp == 1)
+		write(2, "Error\n", 6);
+	else if (tmp == 3)
+			tmp = 1;
 	freeall(list, tmp);
-	if (tmp == 1)
-		ft_printf("Error \n");
 	exit(0);
 }

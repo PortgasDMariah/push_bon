@@ -21,7 +21,7 @@ void	sign(int *maxi, int *nodi)
 		*nodi = -(*nodi);
 }
 
-void	goodmouv(t_node *tmp, bon *list)
+void	goodmouv(t_node *tmp, t_data*list)
 {
 	t_node	*tmp2;
 
@@ -31,14 +31,14 @@ void	goodmouv(t_node *tmp, bon *list)
 	tmp = tmp2;
 }
 
-void	who(bon *list)
+void	who(t_data*list)
 {
 	goodmouv(list->maxi, list);
 	goodmouv(list->min, list);
 	goodmouv(list->chef, list);
 }
 
-int	counti(bon *list, bon *listb)
+int	counti(t_data*list, t_data*listb)
 {
 	int	maxi;
 	int	nodi;
@@ -66,7 +66,7 @@ int	counti(bon *list, bon *listb)
 	return (0);
 }
 
-void	foundit(bon *list, bon *listb)
+void	foundit(t_data*list, t_data*listb)
 {
 	int	count;
 

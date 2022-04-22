@@ -56,7 +56,7 @@ t_node	*ft_lstlast(t_node *lst)
 	return ((t_node *)lst);
 }
 
-void	front(bon *lis, t_node *new)
+void	front(t_data*lis, t_node *new)
 {
 	if (lis->head == NULL)
 	{
@@ -75,7 +75,7 @@ void	front(bon *lis, t_node *new)
 	lis->last = new->next;
 }
 
-void	ft_lstadd_back(t_node **alst, t_node *new, bon *list)
+void	ft_lstadd_back(t_node **alst, t_node *new, t_data*list)
 {
 	t_node	*last;
 

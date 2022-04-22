@@ -11,23 +11,23 @@
 # **************************************************************************** #
 
 SRCS = action.c action2.c utils.c bestmove.c bouge.c ft_printf.c free.c \
-			init.c 3_5numbers.c lis.c tri.c ft_num.c list.c 
+			init.c 3_5numbers.c lis.c tri.c main.c list.c 
 OBJS 		= ${SRCS:.c=.o}
 
 CC 			= clang
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 NAME		= push_swap
-FLAGS		= 
-
+#INCL		= ./struct.h
 all: 		${NAME}
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): 	$(OBJS)
-					${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(FLAGS)
+					${CC} $(CFLAGS) -o $(NAME) $(OBJS)
 
+#$(OBJS):    $(INCL)
 clean:
 			${RM} ${OBJS}
 

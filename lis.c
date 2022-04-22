@@ -6,22 +6,16 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:24:36 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/21 22:34:11 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:19:48 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "struct.h"
 #include <stdlib.h>
 
-void	found_bis(bon *list)
+void	found_lis(t_data*list)
 {
-		list->tmp2 = list->tmp2->next;
-		list->tot--;
-}
-
-void	found_lis(bon *list)
-{
-	while (1 != list->tot)
+	while (list->tmp2->data != list->last->data)
 	{
 		while (list->tmp->data != list->tmp2->data)
 		{
@@ -42,14 +36,11 @@ void	found_lis(bon *list)
 				break ;
 			}
 		}
-		if (list->tmp2->data == list->last->data)
-			break ;
-		else
-			found_bis(list);
+		list->tmp2 = list->tmp2->next;
 	}
 }
 
-void	ft_create_lis(bon *list, bon *listb)
+void	ft_create_lis(t_data*list, t_data*listb)
 {
 	while (list->tmp2->prev != NULL)
 	{
@@ -78,7 +69,7 @@ void	ft_create_lis(bon *list, bon *listb)
 	}
 }
 
-void	lis_organisation(bon *list, bon *listb)
+void	lis_organisation(t_data*list, t_data*listb)
 {
 	while (list->tmp2->data != list->who)
 	{
@@ -98,7 +89,7 @@ void	lis_organisation(bon *list, bon *listb)
 	ft_create_lis(list, listb);
 }
 
-void	lis(bon *list, bon *listb)
+void	lis(t_data*list, t_data*listb)
 {
 	list->tmp2 = NULL;
 	list->tmp = list->head;
