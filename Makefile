@@ -11,11 +11,11 @@
 # **************************************************************************** #
 
 SRCS = action.c action2.c utils.c bestmove.c bouge.c ft_printf.c free.c \
-			init.c 3_5numbers.c lis.c tri.c main.c list.c 
+			init.c 3_5numbers.c lisbis.c tri.c main.c list.c #lis.c
 OBJS 		= ${SRCS:.c=.o}
 
-CC 			= clang
-CFLAGS		= -Wall -Wextra -Werror
+CC 			= gcc #clang
+CFLAGS		= -Wall -Wextra -Werror -g
 RM			= rm -f
 NAME		= push_swap
 #INCL		= ./struct.h
