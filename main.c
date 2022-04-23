@@ -66,9 +66,6 @@ int	ft_parsing(char *str, t_data *list)
 
 void	one_arg(t_data *list, char *str)
 {
-	int	i;
-
-	i = 0;
 	if (list->tot == 2)
 	{
 		ft_parsing(str, list);
@@ -78,7 +75,7 @@ void	one_arg(t_data *list, char *str)
 	else if (list->tot == 1)
 		quit_well(list, 0);
 }
-
+/*
 int	main(int ac, char **av)
 {
 	t_data	stack_b;
@@ -103,3 +100,4 @@ int	main(int ac, char **av)
 	}
 	lets_sort(&stack_a, &stack_b);
 }
+*/

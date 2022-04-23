@@ -13,7 +13,12 @@
 
 void	ft_swap(t_data*list)
 {
-	ft_printf("sa\n");
+		ft_printf("sa\n");
+	/*
+	if(m == 1)
+	else if (m == 2)
+		ft_printf("sb\n");
+	*/
 	list->node = list->head;
 	list->node->prev = list->node->next;
 	list->node->next = list->node->next->next;

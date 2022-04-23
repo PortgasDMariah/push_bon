@@ -11,13 +11,17 @@
 # **************************************************************************** #
 
 SRCS = action.c action2.c utils.c bestmove.c bouge.c ft_printf.c free.c \
-			init.c 3_5numbers.c lisbis.c tri.c main.c list.c #lis.c
+			init.c 3_5numbers.c lisbis.c tri.c main.c mainbon.c list.c #lis.c
+SRCS_BONUS = checker.c action.c action2.c utils.c bestmove.c bouge.c ft_printf.c free.c \
+			init.c 3_5numbers.c lisbis.c tri.c list.c main.c get_next_line.c get_next_line_utils.c
 OBJS 		= ${SRCS:.c=.o}
+OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
 CC 			= gcc #clang
 CFLAGS		= -Wall -Wextra -Werror -g
 RM			= rm -f
 NAME		= push_swap
+NAME_B		= checker
 #INCL		= ./struct.h
 all: 		${NAME}
 
@@ -28,10 +32,17 @@ $(NAME): 	$(OBJS)
 					${CC} $(CFLAGS) -o $(NAME) $(OBJS)
 
 #$(OBJS):    $(INCL)
+
+bonus:		${NAME_B}
+
+${NAME_B}: ${OBJS_BONUS}
+					${CC} $(CFLAGS) -o $(NAME_B) $(OBJS_BONUS)
+
+
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} $(OBJS_BONUS)
 
 fclean: 	clean
-			${RM} ${NAME}
+			${RM} ${NAME} $(NAME_B)
 
 re: 		fclean all

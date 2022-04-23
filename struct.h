@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include "struct.h"
+# include <sys/types.h>
 
 typedef struct s_node
 {
@@ -48,7 +48,7 @@ typedef struct s_data
 	int		j;
 	int		val;
 }	t_data;
-
+void	one_arg(t_data *list, char *str);
 int		sorted_or_not(t_data *list);
 int		ft_parsing(char *str, t_data*list);
 int		ft_num(char c);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
-
+/*
 void	firstone(t_data*list, t_data*listb, t_node *c)
 {
 	position(list);
@@ -26,7 +26,7 @@ void	firstone(t_data*list, t_data*listb, t_node *c)
 	}
 	pb(list, listb, 1);
 }
-
+*/
 void	listmin(t_data*list)
 {
 	t_node	*tmp2;
@@ -54,6 +54,7 @@ void	five(t_data*list, t_data*listb)
 	three(list);
 	pa(listb, list);
 	pa(listb, list);
+	free_list(listb->head);
 }
 
 void	three(t_data*list)
