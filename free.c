@@ -6,12 +6,28 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 17:00:38 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/22 20:19:36 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/25 20:25:02 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
 #include <unistd.h>
 #include <stdlib.h>
+
+void	listmin_circular(t_data*list)
+{
+	t_node	*tmp2;
+
+	tmp2 = list->head->next;
+	list->head->prev = list->last;
+	list->last->next = list->head;
+	list->min = list->head;
+	while (tmp2->data != list->head->data)
+	{
+		if (list->min->data > tmp2->data)
+			list->min = tmp2;
+		tmp2 = tmp2->next;
+	}
+}
 
 void	deleteallnodes(t_node *start)
 {
@@ -51,7 +67,7 @@ void	quit_well(t_data*list, int tmp)
 		exit(0);
 	}
 	else if (tmp == 1)
-		write(2, "Error\n", 6);
+		write(2, "Error\n", 7);
 	else if (tmp == 3)
 			tmp = 1;
 	freeall(list, tmp);

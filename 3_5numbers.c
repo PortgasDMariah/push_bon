@@ -6,13 +6,15 @@
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 21:08:26 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/04/22 11:28:06 by mdouiri          ###   ########.fr       */
+/*   Updated: 2022/04/25 20:45:38 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "struct.h"
-/*
+
 void	firstone(t_data*list, t_data*listb, t_node *c)
 {
+	list->head->prev = NULL;
+	list->last->next = NULL;
 	position(list);
 	if (c->mouv < 0)
 	{
@@ -26,7 +28,7 @@ void	firstone(t_data*list, t_data*listb, t_node *c)
 	}
 	pb(list, listb, 1);
 }
-*/
+
 void	listmin(t_data*list)
 {
 	t_node	*tmp2;
@@ -52,8 +54,8 @@ void	five(t_data*list, t_data*listb)
 	pb(list, listb, 1);
 	listmin(list);
 	three(list);
-	pa(listb, list);
-	pa(listb, list);
+	pa(listb, list, 1);
+	pa(listb, list, 1);
 	free_list(listb->head);
 }
 
@@ -66,7 +68,7 @@ void	three(t_data*list)
 	{
 		if ((list->min->mouv == list->fin && list->chef->mouv == 0)
 			|| (list->chef->mouv != 0 && list->min->mouv == 1))
-			ft_swap(list);
+			ft_swap(list, 1);
 		else if (list->chef->mouv == 0 && list->min->mouv == 1)
 			ft_rotate(list, 1);
 		else if ((list->min->mouv == 0 && list->chef->mouv == 1)

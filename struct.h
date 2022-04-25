@@ -48,7 +48,7 @@ typedef struct s_data
 	int		j;
 	int		val;
 }	t_data;
-void	one_arg(t_data *list, char *str);
+
 int		sorted_or_not(t_data *list);
 int		ft_parsing(char *str, t_data*list);
 int		ft_num(char c);
@@ -64,16 +64,17 @@ t_node	*ft_lstnew(int content);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*listmax(t_data*list);
 t_node	*found_your_place(t_data*list, int c);
+void	one_arg(t_data *list, char *str);
 void	ft_lstadd_back(t_node **alst, t_node *new, t_data*list);
 void	front(t_data*list, t_node *new);
 void	ft_delete(t_data*list);
-void	ft_swap(t_data*list);
+void	ft_swap(t_data*list, int m);
 void	ft_rrotate(t_data*list, int m);
 void	ft_rotate(t_data*list, int m);
 void	pb(t_data*list, t_data*listb, int m);
-void	pa(t_data*list, t_data*listb);
-void	rrr(t_data*list, t_data*listb);
-void	doublerotate(t_data*list, t_data*listb);
+void	pa(t_data*list, t_data*listb, int tmp);
+void	rrr(t_data*list, t_data*listb, int tmp);
+void	doublerotate(t_data*list, t_data*listb, int tmp);
 void	free_list(t_node *node);
 void	position(t_data*list);
 void	foundit(t_data*list, t_data*listb);
@@ -93,5 +94,6 @@ void	three(t_data*list);
 void	five(t_data*list, t_data*listb);
 void	listmin(t_data*list);
 void	quit_well(t_data*list, int tmp);
+void	listmin_circular(t_data*list);
 
 #endif 

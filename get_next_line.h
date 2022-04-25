@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouiri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/28 20:00:31 by mdouiri           #+#    #+#             */
-/*   Updated: 2022/01/12 17:11:41 by mdouiri          ###   ########.fr       */
+/*   Created: 2022/04/25 20:27:10 by mdouiri           #+#    #+#             */
+/*   Updated: 2022/04/25 20:29:43 by mdouiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE 
+# ifdef BUFFER_SIZE 
 #  define BUFFER_SIZE 1
 # endif
 

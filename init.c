@@ -73,8 +73,6 @@ void	firsti(t_data*list, t_node *c)
 		while (list->head->data != c->data)
 			ft_rotate(list, 1);
 	}
-//	if (sorted_or_not(list) != 0)
-	//	quit_well(list, 3);
 }
 
 void	lets_sort(t_data*list, t_data*listb)
@@ -84,10 +82,10 @@ void	lets_sort(t_data*list, t_data*listb)
 		listmax(list);
 		if (list->tot == 4 || list->tot == 6)
 			three_to_five(list, listb);
-		firsti(list, list->min);
 		lis(list, listb);
 		organisation(list, listb);
 		firsti(list, list->min);
 		quit_well(list, 2);
 	}
+	quit_well(list, 3);
 }

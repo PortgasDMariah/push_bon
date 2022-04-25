@@ -23,7 +23,7 @@ void	actiona_drotate(t_data*list, t_data*listb, int push, int maxi)
 	simple = max(push, maxi) - doub;
 	while (doub != 0)
 	{
-		doublerotate(list, listb);
+		doublerotate(list, listb, 1);
 		doub--;
 	}
 	while (push > maxi && simple != 0)
@@ -47,7 +47,7 @@ void	actiona_rrr(t_data*list, t_data*listb, int push, int maxi)
 	simple = max(push, maxi) - doub;
 	while (doub != 0)
 	{
-		rrr(list, listb);
+		rrr(list, listb, 1);
 		doub--;
 	}
 	while (push < maxi && simple != 0)
@@ -106,7 +106,7 @@ void	actiona(t_data*list, t_data*listb)
 		actiona_rrr(list, listb, push, maxi);
 	else
 		actiona_else(list, listb, push, maxi);
-	pa(list, listb);
+	pa(list, listb, 1);
 }
 
 void	organisation(t_data*list, t_data*listb)
